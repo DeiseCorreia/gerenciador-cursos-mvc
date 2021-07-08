@@ -3,7 +3,7 @@
 use Alura\Cursos\Controller\{
     Exclusao,
     ListarCursos,
-    Persistencia,
+    Persistencia,,
     FormularioInsercao
 };
 
