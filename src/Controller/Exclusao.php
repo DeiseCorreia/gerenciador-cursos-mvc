@@ -8,7 +8,7 @@ use Alura\Cursos\Controller\InterfaceControladorRequisicao;
 
 class Exclusao implements InterfaceControladorRequisicao
 {
-    /** @var $entityManager */
+    /** @var \Doctrine\ORM\EntityManagerInterface */
     private $entityManager;
 
     public function __construct()
@@ -25,7 +25,7 @@ class Exclusao implements InterfaceControladorRequisicao
             return;
         }
 
-        $curso = $this->entityManager->getReference(Curso ::class,$id);
+        $curso = $this->entityManager->getReference(Curso::class, $id);
         $this->entityManager->remove($curso);
         $this->entityManager->flush();
         header('Location: /listar-cursos');

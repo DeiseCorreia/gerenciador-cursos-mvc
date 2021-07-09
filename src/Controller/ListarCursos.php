@@ -4,9 +4,11 @@
 namespace Alura\Cursos\Controller;
 
 use Alura\Cursos\Entity\Curso;
+use Doctrine\ORM\EntityManagerInterface;
 use Alura\Cursos\Infra\EntityManagerCreator;
 use Alura\Cursos\Controller\ControllerComHtml;
-use Doctrine\Common\Persistence\ObjectRepository;
+
+
 
 
 class ListarCursos extends ControllerComHtml implements InterfaceControladorRequisicao
@@ -18,20 +20,22 @@ class ListarCursos extends ControllerComHtml implements InterfaceControladorRequ
 
     public function __construct()
     {
-        $entityManager = (new EntityManagerCreator())
+        
+      $entityManager = (new EntityManagerCreator())
             ->getEntityManager();
         $this->repositorioDeCursos = $entityManager
             ->getRepository(Curso::class);
+            
     }
-
     
     public function processaRequisicao(): void
     {
         
         echo $this->renderizaHtml('cursos/listar-cursos.php',[
-            'cursos' => $this->repositorioCursos->findAll(),
+            'cursos' => $this->repositorioDeCursos->findAll(),
             'titulo' => 'Lista de Cursos',
         ]);
+
         
     }
 }
