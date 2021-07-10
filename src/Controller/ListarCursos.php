@@ -6,13 +6,14 @@ namespace Alura\Cursos\Controller;
 use Alura\Cursos\Entity\Curso;
 use Doctrine\ORM\EntityManagerInterface;
 use Alura\Cursos\Infra\EntityManagerCreator;
-use Alura\Cursos\Controller\ControllerComHtml;
+use Alura\Cursos\Helper\RenderizadorDeHtmlTrait;
 
 
 
 
-class ListarCursos extends ControllerComHtml implements InterfaceControladorRequisicao
+class ListarCursos  implements InterfaceControladorRequisicao
 {
+    use RenderizadorDeHtmlTrait;
     /**
     * @var \Doctrine\Common\Persistence\ObjectRepository
     */

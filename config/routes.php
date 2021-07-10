@@ -7,7 +7,8 @@ use Alura\Cursos\Controller\{
     FormularioInsercao,
     FormularioEdicao,
     FormularioLogin,
-    RealizarLogin
+    RealizarLogin,
+    Deslogar
 };
 
 //devolve as rotas para o index.php
@@ -19,5 +20,6 @@ return [
     '/excluir-curso'=> Exclusao::class,
     '/alterar-curso'=> FormularioEdicao::class,
     '/login'=> FormularioLogin::class,
-    '/realiza-login'=> RealizarLogin::class
+    '/realiza-login'=> RealizarLogin::class,
+    '/logout'=> Deslogar::class,
 ];
